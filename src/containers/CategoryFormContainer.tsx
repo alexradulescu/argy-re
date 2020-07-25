@@ -1,39 +1,37 @@
-import React, { FC, useState, ChangeEvent, FormEvent } from "react";
+import React, { FC, useState, ChangeEvent, FormEvent } from 'react'
 
-import { useCategories } from "../hooks";
+import { useCategories } from '../hooks'
 
 export const CategoryFormContainer: FC = () => {
   const [category, setCategory] = useState({
-    label: "",
-    treshold: "",
-  });
+    label: '',
+    treshold: ''
+  })
 
-  const { submitCategory } = useCategories();
+  const { submitCategory } = useCategories()
 
-  const onChangeCategory = (
-    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
+  const onChangeCategory = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setCategory({
       ...category,
-      [e.target.name]: e.target.value,
-    });
-  };
+      [e.target.name]: e.target.value
+    })
+  }
 
   const clearForm = () => {
     setCategory({
-      label: "",
-      treshold: "",
-    });
-  };
+      label: '',
+      treshold: ''
+    })
+  }
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault()
     submitCategory({
       ...category,
-      value: category.label.toLowerCase().replace(/\s/g, "_"),
-    });
-    clearForm();
-  };
+      value: category.label.toLowerCase().replace(/\s/g, '_')
+    })
+    clearForm()
+  }
 
   return (
     <form onSubmit={onSubmit}>
@@ -66,7 +64,7 @@ export const CategoryFormContainer: FC = () => {
         </label>
       </fieldset>
     </form>
-  );
-};
+  )
+}
 
-CategoryFormContainer.displayName = "CategoryFormContainer";
+CategoryFormContainer.displayName = 'CategoryFormContainer'

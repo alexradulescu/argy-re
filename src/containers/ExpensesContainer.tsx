@@ -1,9 +1,9 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
-import { useExpenses } from "../hooks";
+import { useExpenses } from '../hooks'
 
 export const ExpensesContainer: FC = () => {
-  const { expenses, deleteExpense } = useExpenses();
+  const { expenses, deleteExpense } = useExpenses()
 
   return (
     <fieldset>
@@ -12,12 +12,11 @@ export const ExpensesContainer: FC = () => {
           <dt>
             <h4 style={{ margin: 0 }}>{description}</h4>
             <span>
-              <code>{category || "None?"}</code> &mdash;{" "}
-              <small>{date || "??"}</small>
+              <code>{category || 'None?'}</code> &mdash; <small>{date || '??'}</small>
             </span>
           </dt>
           <dd>
-            <p style={{ margin: 0, fontFamily: "monospace" }}>
+            <p style={{ margin: 0, fontFamily: 'monospace' }}>
               <strong>{amount}</strong>
             </p>
             <code onClick={() => deleteExpense(id)}>X</code>
@@ -25,7 +24,7 @@ export const ExpensesContainer: FC = () => {
         </dl>
       ))}
     </fieldset>
-  );
-};
+  )
+}
 
-ExpensesContainer.displayName = "ExpensesContainer";
+ExpensesContainer.displayName = 'ExpensesContainer'

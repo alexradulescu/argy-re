@@ -1,19 +1,19 @@
-import React, { FC } from "react";
-import { Navigation } from "./Navigation";
+import React, { FC } from 'react'
+import { Navigation } from './Navigation'
 
 interface Props {
-  title: string;
+  title: string
 }
 
 export const PageHeader: FC<Props> = ({ title }) => (
   <header
     style={{
-      display: "flex",
-      justifyContent: "space-between",
+      display: 'flex',
+      justifyContent: 'space-between'
     }}
   >
     <h2 style={{ margin: 0 }}>{title}</h2>
   </header>
-);
+)
 
-PageHeader.displayName = "PageHeader";
+PageHeader.displayName = 'PageHeader'

@@ -1,10 +1,10 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
-import { useOverview, useCategories } from "../hooks";
+import { useOverview, useCategories } from '../hooks'
 
 export const CategoriesContainer: FC = () => {
-  const { overview, totalBalance } = useOverview();
-  const { deleteCategory } = useCategories();
+  const { overview, totalBalance } = useOverview()
+  const { deleteCategory } = useCategories()
 
   return (
     <>
@@ -26,7 +26,7 @@ export const CategoriesContainer: FC = () => {
                 <h4 style={{ margin: 0 }}>{label}</h4>
               </dt>
               <dd>
-                <p style={{ margin: 0, fontFamily: "monospace" }}>
+                <p style={{ margin: 0, fontFamily: 'monospace' }}>
                   {spent} / {treshold}
                 </p>
                 <code onClick={() => deleteCategory(id)}>X</code>
@@ -40,7 +40,7 @@ export const CategoriesContainer: FC = () => {
                 low={treshold * 0.33}
                 min={0}
                 max={treshold}
-                style={{ width: "100%", margin: 0 }}
+                style={{ width: '100%', margin: 0 }}
               />
             </div>
             <br />
@@ -48,7 +48,7 @@ export const CategoriesContainer: FC = () => {
         ))}
       </fieldset>
     </>
-  );
-};
+  )
+}
 
-CategoriesContainer.displayName = "CategoriesContainer";
+CategoriesContainer.displayName = 'CategoriesContainer'

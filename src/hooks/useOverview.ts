@@ -18,14 +18,8 @@ export const useOverview = () => {
   })
 
   const totalBalance =
-    expenses.reduce(
-      (accumulator, item) => (accumulator -= Number(item.amount)),
-      0
-    ) +
-    incomes.reduce(
-      (accumulator, item) => (accumulator += Number(item.amount)),
-      0
-    )
+    expenses.reduce((accumulator, item) => (accumulator -= Number(item.amount)), 0) +
+    incomes.reduce((accumulator, item) => (accumulator += Number(item.amount)), 0)
 
   return { overview, totalBalance }
 }
