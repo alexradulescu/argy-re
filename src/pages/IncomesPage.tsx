@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
-import { IncomesContainer, ExpenseFormContainer } from "../containers";
-import { PageHeader, PageFooter } from "../shared-components";
+import { IncomesContainer, ExpenseFormContainer } from '../containers'
+import { PageHeader, PageFooter } from '../shared-components'
 
 export const IncomesPage: FC = () => {
   return (
@@ -14,7 +14,7 @@ export const IncomesPage: FC = () => {
       <br />
       <PageFooter />
     </main>
-  );
-};
+  )
+}
 
-IncomesPage.displayName = "IncomesPage";
+IncomesPage.displayName = 'IncomesPage'

@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
-import { ExpensesContainer, ExpenseFormContainer } from "../containers";
-import { PageHeader, PageFooter } from "../shared-components";
+import { ExpensesContainer, ExpenseFormContainer } from '../containers'
+import { PageHeader, PageFooter } from '../shared-components'
 
 export const HomePage: FC = () => {
   return (
@@ -14,7 +14,7 @@ export const HomePage: FC = () => {
       <br />
       <PageFooter />
     </main>
-  );
-};
+  )
+}
 
-HomePage.displayName = "HomePage";
+HomePage.displayName = 'HomePage'

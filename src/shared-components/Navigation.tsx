@@ -1,18 +1,18 @@
-import React, { FC } from "react";
-import { NavLink } from "react-router-dom";
+import React, { FC } from 'react'
+import { NavLink } from 'react-router-dom'
 
 export const Navigation: FC = () => (
   <nav
     style={{
-      gridTemplateColumns: "auto auto auto",
-      display: "grid",
-      gridGap: 4,
+      gridTemplateColumns: 'auto auto auto',
+      display: 'grid',
+      gridGap: 4
     }}
   >
     <NavLink
       exact
       activeStyle={{
-        fontWeight: "bold",
+        fontWeight: 'bold'
       }}
       to="/"
     >
@@ -20,7 +20,7 @@ export const Navigation: FC = () => (
     </NavLink>
     <NavLink
       activeStyle={{
-        fontWeight: "bold",
+        fontWeight: 'bold'
       }}
       to="/categories"
     >
@@ -28,13 +28,13 @@ export const Navigation: FC = () => (
     </NavLink>
     <NavLink
       activeStyle={{
-        fontWeight: "bold",
+        fontWeight: 'bold'
       }}
       to="/incomes"
     >
       Incomes
     </NavLink>
   </nav>
-);
+)
 
-Navigation.displayName = "Navigation";
+Navigation.displayName = 'Navigation'
