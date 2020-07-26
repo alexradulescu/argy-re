@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { useIncomes } from '../hooks'
+import { useIncomes } from '../../hooks'
 
 export const IncomesContainer: FC = () => {
   const { incomes, deleteIncome } = useIncomes()

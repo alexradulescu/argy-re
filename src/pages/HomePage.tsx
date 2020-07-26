@@ -1,20 +1,13 @@
 import React, { FC } from 'react'
 
-import { ExpensesContainer, ExpenseFormContainer } from '../containers'
-import { PageHeader, PageFooter } from '../shared-components'
+import { ExpensesContainer, ExpenseFormContainer } from '../components'
+import { PageTemplate } from './PageTemplate'
 
-export const HomePage: FC = () => {
-  return (
-    <main>
-      <PageHeader title="Dashboard" />
-      <br />
-      <ExpensesContainer />
-      <br />
-      <ExpenseFormContainer />
-      <br />
-      <PageFooter />
-    </main>
-  )
-}
+export const HomePage: FC = () => (
+  <PageTemplate title="Dashboard">
+    <ExpensesContainer />
+    <ExpenseFormContainer />
+  </PageTemplate>
+)
 
 HomePage.displayName = 'HomePage'

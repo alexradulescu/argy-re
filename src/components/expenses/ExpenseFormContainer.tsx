@@ -1,7 +1,7 @@
 import React, { FC, useState, FormEvent, ChangeEvent, MouseEvent } from 'react'
 
-import { useExpenses, useCategories, useIncomes } from '../hooks'
-import { Category } from '../interfaces'
+import { useExpenses, useCategories, useIncomes } from '../../hooks'
+import { Category } from '../../interfaces'
 
 export const ExpenseFormContainer: FC = () => {
   const { submitExpense } = useExpenses()

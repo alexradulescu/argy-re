@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { useOverview, useCategories } from '../hooks'
+import { useOverview, useCategories } from '../../hooks'
 
 export const CategoriesContainer: FC = () => {
   const { overview, totalBalance } = useOverview()
