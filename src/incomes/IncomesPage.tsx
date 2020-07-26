@@ -1,7 +1,9 @@
 import React, { FC } from 'react'
 
-import { IncomesContainer, ExpenseFormContainer } from '../containers'
 import { PageHeader, PageFooter } from '../shared-components'
+import { ExpenseFormContainer } from '../expenses'
+
+import { IncomesContainer } from './IncomesContainer'
 
 export const IncomesPage: FC = () => {
   return (

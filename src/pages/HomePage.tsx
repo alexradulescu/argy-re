@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { ExpensesContainer, ExpenseFormContainer } from '../containers'
+import { ExpensesContainer, ExpenseFormContainer } from '../expenses'
 import { PageHeader, PageFooter } from '../shared-components'
 
 export const HomePage: FC = () => {
