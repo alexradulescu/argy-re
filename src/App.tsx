@@ -3,9 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { ThemeProvider, CSSReset } from '@chakra-ui/core'
 
 import { customTheme } from './theme'
-import { CategoriesPage } from './categories'
-import { HomePage } from './pages'
-import { IncomesPage } from './incomes'
+import { CategoriesPage, HomePage, IncomesPage } from './pages'
 
 export const App: FC = () => {
   return (

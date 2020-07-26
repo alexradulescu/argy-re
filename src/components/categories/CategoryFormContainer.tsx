@@ -1,6 +1,6 @@
 import React, { FC, useState, ChangeEvent, FormEvent } from 'react'
 
-import { useCategories } from '../hooks'
+import { useCategories } from '../../hooks'
 
 export const CategoryFormContainer: FC = () => {
   const [category, setCategory] = useState({
