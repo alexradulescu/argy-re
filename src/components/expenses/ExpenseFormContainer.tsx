@@ -1,4 +1,5 @@
 import React, { FC, useState, FormEvent, ChangeEvent, MouseEvent } from 'react'
+import { Input, Heading, Select, Button, Stack } from '@chakra-ui/core'
 
 import { useExpenses, useCategories, useIncomes } from '../../hooks'
 import { Category } from '../../interfaces'
@@ -52,61 +53,40 @@ export const ExpenseFormContainer: FC = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <fieldset>
-        <legend>Add Expense</legend>
-        <aside>
-          <label>
-            <input
-              id="outlined-basic"
-              placeholder="Description"
-              name="description"
-              type="text"
-              value={expense.description}
-              onChange={onChangeExpense}
-              required
-            />
-          </label>
-          <label>
-            <input
-              id="outlined-basic"
-              placeholder="Amount"
-              name="amount"
-              type="number"
-              value={expense.amount}
-              onChange={onChangeExpense}
-              required
-            />
-          </label>
-        </aside>
-        <aside>
-          <label>
-            <select name="category" value={expense.category} onChange={onChangeExpense} placeholder="Category" required>
-              <option value="" disabled>
-                Choose the Category...
-              </option>
-              {categories.map(({ label, value }: any) => (
-                <option key={value} value={value}>
-                  {label}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label>
-            <input
-              type="date"
-              name="date"
-              value={expense.date}
-              onChange={onChangeExpense}
-              placeholder="date"
-              required
-            />
-          </label>
-        </aside>
-        <aside>
-          <button type="submit">Add Expense</button>
-          <button onClick={addIncome}>Add Income</button>
-        </aside>
-      </fieldset>
+      <Stack spacing={'8px'}>
+        <Heading size="md">Add Expense</Heading>
+        <Input
+          id="outlined-basic"
+          placeholder="Description"
+          name="description"
+          type="text"
+          value={expense.description}
+          onChange={onChangeExpense}
+          isRequired
+        />
+        <Input
+          id="outlined-basic"
+          placeholder="Amount"
+          name="amount"
+          type="number"
+          value={expense.amount}
+          onChange={onChangeExpense}
+          isRequired
+        />
+        <Select name="category" value={expense.category} onChange={onChangeExpense} placeholder="Category" isRequired>
+          <option value="" disabled>
+            Choose the Category...
+          </option>
+          {categories.map(({ label, value }: any) => (
+            <option key={value} value={value}>
+              {label}
+            </option>
+          ))}
+        </Select>
+        <Input type="date" name="date" value={expense.date} onChange={onChangeExpense} placeholder="date" isRequired />
+        <Button type="submit">Add Expense</Button>
+        <Button onClick={addIncome}>Add Income</Button>
+      </Stack>
     </form>
   )
 }
