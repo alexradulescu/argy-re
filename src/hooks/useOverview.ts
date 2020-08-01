@@ -12,7 +12,7 @@ export const useOverview = () => {
     return {
       ...category,
       spent: expenses
-        .filter((expense) => expense.category === category.value)
+        .filter((expense) => expense.category === category.id)
         .reduce((accumulator, item) => accumulator + Number(item.amount), 0)
     }
   })

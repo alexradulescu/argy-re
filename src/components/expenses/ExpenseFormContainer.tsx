@@ -2,18 +2,20 @@ import React, { FC, useState, FormEvent, ChangeEvent, MouseEvent } from 'react'
 import { Input, Heading, Select, Button, Stack } from '@chakra-ui/core'
 
 import { useExpenses, useCategories, useIncomes } from '../../hooks'
-import { Category } from '../../interfaces'
+
+const DEFAULT_EXPENSE = {
+  id: '',
+  description: '',
+  amount: '',
+  category: '',
+  date: new Date().toISOString().substring(0, 10)
+}
 
 export const ExpenseFormContainer: FC = () => {
   const { submitExpense } = useExpenses()
   const { submitIncome } = useIncomes()
   const { categories } = useCategories()
-  const [expense, setExpense] = useState({
-    description: '',
-    amount: '',
-    category: '',
-    date: new Date().toISOString().substring(0, 10)
-  })
+  const [expense, setExpense] = useState(DEFAULT_EXPENSE)
 
   const onChangeExpense = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setExpense({
@@ -23,30 +25,23 @@ export const ExpenseFormContainer: FC = () => {
   }
 
   const clearForm = () => {
-    setExpense({
-      description: '',
-      amount: '',
-      category: '',
-      date: new Date().toISOString().substring(0, 10)
-    })
+    setExpense(DEFAULT_EXPENSE)
   }
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    submitExpense({
+    await submitExpense({
       ...expense,
-      amount: Number(expense.amount),
-      id: ''
+      amount: Number(expense.amount)
     })
     clearForm()
   }
 
-  const addIncome = (e: MouseEvent<HTMLButtonElement>) => {
+  const addIncome = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    submitIncome({
-      description: expense.description,
-      amount: Number(expense.amount),
-      date: expense.date
+    await submitIncome({
+      ...expense,
+      amount: Number(expense.amount)
     })
     clearForm()
   }
@@ -73,10 +68,13 @@ export const ExpenseFormContainer: FC = () => {
           onChange={onChangeExpense}
           isRequired
         />
-        <Select name="category" value={expense.category} onChange={onChangeExpense} placeholder="Category" isRequired>
-          <option value="" disabled>
-            Choose the Category...
-          </option>
+        <Select
+          name="category"
+          value={expense.category}
+          onChange={onChangeExpense}
+          placeholder="Choose Category"
+          isRequired
+        >
           {categories.map(({ label, value }: any) => (
             <option key={value} value={value}>
               {label}

@@ -1,29 +1,25 @@
 import React, { FC } from 'react'
+import { Box } from '@chakra-ui/core'
 
+import { ExpenseItem } from './ExpenseItem'
 import { useExpenses } from '../../hooks'
 
 export const ExpensesContainer: FC = () => {
   const { expenses, deleteExpense } = useExpenses()
 
   return (
-    <fieldset>
+    <Box>
       {expenses.map(({ id, description, category, amount, date }) => (
-        <dl key={id}>
-          <dt>
-            <h4 style={{ margin: 0 }}>{description}</h4>
-            <span>
-              <code>{category || 'None?'}</code> &mdash; <small>{date || '??'}</small>
-            </span>
-          </dt>
-          <dd>
-            <p style={{ margin: 0, fontFamily: 'monospace' }}>
-              <strong>{amount}</strong>
-            </p>
-            <code onClick={() => deleteExpense(id)}>X</code>
-          </dd>
-        </dl>
+        <ExpenseItem
+          id={id}
+          description={description}
+          category={category}
+          amount={amount}
+          date={date}
+          deleteExpense={deleteExpense}
+        />
       ))}
-    </fieldset>
+    </Box>
   )
 }
 

@@ -1,12 +1,12 @@
 import React, { FC, useState, ChangeEvent, FormEvent } from 'react'
+import { Input, Heading, Select, Button, Stack } from '@chakra-ui/core'
 
 import { useCategories } from '../../hooks'
 
+const DEFAULT_CATEGORY = { id: '', label: '', treshold: '' }
+
 export const CategoryFormContainer: FC = () => {
-  const [category, setCategory] = useState({
-    label: '',
-    treshold: ''
-  })
+  const [category, setCategory] = useState(DEFAULT_CATEGORY)
 
   const { submitCategory } = useCategories()
 
@@ -18,51 +18,43 @@ export const CategoryFormContainer: FC = () => {
   }
 
   const clearForm = () => {
-    setCategory({
-      label: '',
-      treshold: ''
-    })
+    setCategory(DEFAULT_CATEGORY)
   }
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     submitCategory({
       ...category,
-      value: category.label.toLowerCase().replace(/\s/g, '_')
+      id: category.label.toLowerCase().replace(/\s/g, '_')
     })
     clearForm()
   }
 
   return (
     <form onSubmit={onSubmit}>
-      <fieldset>
-        <legend>Add Category</legend>
-        <label>
-          <input
-            id="outlined-basic"
-            placeholder="Title"
-            name="label"
-            type="text"
-            value={category.label}
-            onChange={onChangeCategory}
-            required
-          />
-        </label>
-        <label>
-          <input
-            id="outlined-basic"
-            placeholder="Max Amount"
-            name="treshold"
-            type="number"
-            value={category.treshold}
-            onChange={onChangeCategory}
-            required
-          />
-        </label>
-        <label>
-          <button type="submit">Add Category</button>
-        </label>
-      </fieldset>
+      <Stack spacing={'8px'}>
+        {' '}
+        <Heading size="md">Add Category</Heading>
+        <Input
+          id="outlined-basic"
+          placeholder="Title"
+          name="label"
+          type="text"
+          value={category.label}
+          onChange={onChangeCategory}
+          isRequired
+        />
+        <Input
+          id="outlined-basic"
+          placeholder="Max Amount"
+          name="treshold"
+          type="number"
+          value={category.treshold}
+          onChange={onChangeCategory}
+          isRequired
+        />
+        <Button type="submit">Add Category</Button>
+      </Stack>
     </form>
   )
 }
