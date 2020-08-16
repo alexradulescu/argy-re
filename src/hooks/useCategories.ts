@@ -22,11 +22,11 @@ export const useCategories = () => {
     }
   }, [])
 
-  const submitCategory = async (category: Category) => {
+  const submitCategory = async (category: Category): Promise<void> => {
     database.collection('categories').add(category)
   }
 
-  const deleteCategory = async (categoryId: string) => {
+  const deleteCategory = async (categoryId: string): Promise<void> => {
     try {
       await database.collection('categories').doc(categoryId).delete()
     } catch (error) {

@@ -4,7 +4,7 @@ import { ExpensesContainer, ExpenseFormContainer } from '../components'
 import { PageTemplate } from './PageTemplate'
 
 export const HomePage: FC = () => (
-  <PageTemplate title="Dashboard">
+  <PageTemplate title="Home">
     <ExpensesContainer />
     <ExpenseFormContainer />
   </PageTemplate>

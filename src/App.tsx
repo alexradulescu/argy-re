@@ -1,13 +1,13 @@
 import React, { FC } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { ThemeProvider, CSSReset } from '@chakra-ui/core'
+import { ChakraProvider, CSSReset } from '@chakra-ui/core'
 
 import { customTheme } from './theme'
 import { CategoriesPage, HomePage, IncomesPage } from './pages'
 
 export const App: FC = () => {
   return (
-    <ThemeProvider theme={customTheme}>
+    <ChakraProvider theme={customTheme}>
       <CSSReset />
       <Router>
         <Switch>
@@ -22,6 +22,6 @@ export const App: FC = () => {
           </Route>
         </Switch>
       </Router>
-    </ThemeProvider>
+    </ChakraProvider>
   )
 }

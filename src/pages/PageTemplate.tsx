@@ -10,8 +10,8 @@ interface Props {
 
 export const PageTemplate: FC<Props> = ({ title, children }) => {
   return (
-    <Box as="main" maxWidth="960px" margin="auto">
-      <PageHeader title="Incomes" />
+    <Box as="main" maxWidth="960px" width="90%" margin="auto">
+      <PageHeader title={title} />
       {children}
       <PageFooter />
     </Box>

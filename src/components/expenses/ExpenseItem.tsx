@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import styled from '@emotion/styled'
 import { Box, Text, Button, Tag } from '@chakra-ui/core'
 import { FaTimes } from 'react-icons/fa'
 
@@ -8,12 +9,27 @@ interface Props extends Expense {
   deleteExpense: (id: string) => void
 }
 
-export const ExpenseItem: FC<Props> = ({ id, description, category, categoryLabel, amount, date, deleteExpense }) => {
+export const ExpenseItem: FC<Props> = ({
+  id,
+  description,
+  category,
+  categoryLabel,
+  amount,
+  date,
+  deleteExpense
+}) => {
   return (
-    <Box key={id} borderWidth="1px" display="flex" justifyContent="space-between" padding="3" borderRadius="4px">
+    <Box
+      key={id}
+      borderWidth="1px"
+      display="flex"
+      justifyContent="space-between"
+      padding="3"
+      borderRadius="4px"
+    >
       <Box>
         <Text fontWeight="600">{description}</Text>
-        <Tag variant="subtle" fontSize="12px" variantColor="blue" size="sm">
+        <Tag variant="subtle" fontSize="12px" colorScheme="blue" size="sm">
           {categoryLabel ?? category}
         </Tag>{' '}
         •{' '}
