@@ -1,5 +1,4 @@
 import React, { FC } from 'react'
-import styled from '@emotion/styled'
 import { Box, Text, Button, Tag } from '@chakra-ui/core'
 import { FaTimes } from 'react-icons/fa'
 
