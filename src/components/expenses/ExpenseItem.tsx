@@ -20,7 +20,6 @@ export const ExpenseItem: FC<Props> = ({
 }) => {
   return (
     <Box
-      key={id}
       borderWidth="1px"
       display="flex"
       justifyContent="space-between"

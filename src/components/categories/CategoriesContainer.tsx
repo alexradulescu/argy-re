@@ -20,6 +20,7 @@ export const CategoriesContainer: FC = () => {
       <Box>
         {overview.map(({ id, label, treshold, spent }: any) => (
           <CategoryItem
+            key={id}
             id={id}
             label={label}
             spent={spent}

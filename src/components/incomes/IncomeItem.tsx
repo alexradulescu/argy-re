@@ -11,7 +11,6 @@ interface Props extends Income {
 export const IncomeItem: FC<Props> = ({ id, description, amount, date, deleteIncome }) => {
   return (
     <Box
-      key={id}
       borderWidth="1px"
       display="flex"
       justifyContent="space-between"

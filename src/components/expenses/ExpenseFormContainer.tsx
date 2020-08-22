@@ -2,13 +2,14 @@ import React, { FC, useState, FormEvent, ChangeEvent, MouseEvent } from 'react'
 import { Input, Heading, Select, Button, Stack } from '@chakra-ui/core'
 
 import { useExpenses, useCategories, useIncomes } from 'src/hooks'
+import { getToday } from 'src/utils'
 
 const DEFAULT_EXPENSE = {
   id: '',
   description: '',
   amount: '',
   category: '',
-  date: new Date().toISOString().substring(0, 10)
+  date: getToday()
 }
 
 export const ExpenseFormContainer: FC = () => {

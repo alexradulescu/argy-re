@@ -1,5 +1,9 @@
 import React, { FC } from 'react'
 import { Box } from '@chakra-ui/core'
+import { AiOutlineHome } from 'react-icons/ai'
+import { GiPayMoney, GiReceiveMoney } from 'react-icons/gi'
+import { RiSettings4Line } from 'react-icons/ri'
+import { HiOutlineDocumentReport } from 'react-icons/hi'
 
 import { NavigationLink } from './NavigationLink'
 
@@ -23,15 +27,15 @@ export const Navigation: FC = () => (
       }}
       to="/"
     >
-      Home
+      <AiOutlineHome />
     </NavigationLink>
     <NavigationLink
       activeStyle={{
         fontWeight: 'bold'
       }}
-      to="/categories"
+      to="/expenses"
     >
-      Categories
+      <GiPayMoney />
     </NavigationLink>
     <NavigationLink
       activeStyle={{
@@ -39,7 +43,23 @@ export const Navigation: FC = () => (
       }}
       to="/incomes"
     >
-      Incomes
+      <GiReceiveMoney />
+    </NavigationLink>
+    <NavigationLink
+      activeStyle={{
+        fontWeight: 'bold'
+      }}
+      to="/report"
+    >
+      <HiOutlineDocumentReport />
+    </NavigationLink>
+    <NavigationLink
+      activeStyle={{
+        fontWeight: 'bold'
+      }}
+      to="/categories"
+    >
+      <RiSettings4Line />
     </NavigationLink>
   </Box>
 )

@@ -12,6 +12,7 @@ export const IncomesContainer: FC = () => {
     <Box>
       {incomes.map(({ id, description, amount, date }) => (
         <IncomeItem
+          key={id}
           id={id}
           description={description}
           amount={amount}

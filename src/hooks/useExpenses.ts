@@ -4,11 +4,9 @@ import { database } from 'src/firebase'
 import { Expense, Category } from 'src/interfaces'
 
 import { useCategories } from './useCategories'
+import { getThisYear, getThisMonth } from 'src/utils'
 
-export const useExpenses = (
-  year = new Date().toISOString().substring(0, 4),
-  month = new Date().toISOString().substring(5, 7)
-) => {
+export const useExpenses = ({ year, month } = { year: getThisYear(), month: getThisMonth() }) => {
   const [expenses, setExpenses] = useState<Expense[]>([])
   const { categories } = useCategories()
 
@@ -40,6 +38,8 @@ export const useExpenses = (
   }, [month, year, categories])
 
   const submitExpense = async (expense: Expense) => {
+    delete expense.id
+
     await database.collection('expenses').add(expense)
   }
 
@@ -50,6 +50,8 @@ export const useExpenses = (
       alert(error)
     }
   }
+
+  console.log(expenses)
 
   return { expenses, submitExpense, deleteExpense }
 }

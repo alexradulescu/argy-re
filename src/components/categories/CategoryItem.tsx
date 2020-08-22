@@ -24,7 +24,6 @@ export const CategoryItem: FC<Props> = ({ id, label, spent, treshold, deleteCate
 
   return (
     <Box
-      key={id}
       borderWidth="1px"
       display="flex"
       justifyContent="space-between"
