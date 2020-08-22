@@ -19,7 +19,7 @@
     "react-icons": "^3.10.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "next",
-    "typescript": "~3.9.7"
+    "typescript": "4.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
