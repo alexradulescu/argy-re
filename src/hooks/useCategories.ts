@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
-import { database } from '../firebase'
-import { Category } from '../interfaces'
+import { database } from 'src/firebase'
+import { Category } from 'src/interfaces'
 
 export const useCategories = () => {
   const [categories, setCategories] = useState<any>([])

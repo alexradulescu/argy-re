@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { Box, Text, Button, Progress } from '@chakra-ui/core'
 import { FaTimes } from 'react-icons/fa'
 
-import { Category } from '../../interfaces'
+import { Category } from 'src/interfaces'
 
 interface Props extends Category {
   spent: number
@@ -23,7 +23,14 @@ export const CategoryItem: FC<Props> = ({ id, label, spent, treshold, deleteCate
   }
 
   return (
-    <Box key={id} borderWidth="1px" display="flex" justifyContent="space-between" padding="3" borderRadius="4px">
+    <Box
+      key={id}
+      borderWidth="1px"
+      display="flex"
+      justifyContent="space-between"
+      padding="3"
+      borderRadius="4px"
+    >
       <Box>
         <Text fontWeight="600">{label}</Text>
       </Box>
@@ -33,7 +40,13 @@ export const CategoryItem: FC<Props> = ({ id, label, spent, treshold, deleteCate
         </Text>
       </Box>
       <Box flex="1">
-        <Progress color={getProgressColor()} size="sm" flex="1" value={spent} max={Number(treshold)} />
+        <Progress
+          color={getProgressColor()}
+          size="sm"
+          flex="1"
+          value={spent}
+          max={Number(treshold)}
+        />
 
         <Button size="xs" onClick={() => deleteCategory(id)}>
           <FaTimes />

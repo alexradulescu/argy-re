@@ -1,7 +1,8 @@
 import React, { FC } from 'react'
 import { Box, Heading } from '@chakra-ui/core'
 
-import { useOverview, useCategories } from '../../hooks'
+import { useOverview, useCategories } from 'src/hooks'
+
 import { CategoryItem } from './CategoryItem'
 
 export const CategoriesContainer: FC = () => {
@@ -18,7 +19,13 @@ export const CategoriesContainer: FC = () => {
       </Box>
       <Box>
         {overview.map(({ id, label, treshold, spent }: any) => (
-          <CategoryItem id={id} label={label} spent={spent} treshold={treshold} deleteCategory={deleteCategory} />
+          <CategoryItem
+            id={id}
+            label={label}
+            spent={spent}
+            treshold={treshold}
+            deleteCategory={deleteCategory}
+          />
         ))}
       </Box>
     </>

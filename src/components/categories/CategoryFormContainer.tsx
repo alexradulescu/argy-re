@@ -1,7 +1,7 @@
 import React, { FC, useState, ChangeEvent, FormEvent } from 'react'
 import { Input, Heading, Select, Button, Stack } from '@chakra-ui/core'
 
-import { useCategories } from '../../hooks'
+import { useCategories } from 'src/hooks'
 
 const DEFAULT_CATEGORY = { id: '', label: '', treshold: '' }
 

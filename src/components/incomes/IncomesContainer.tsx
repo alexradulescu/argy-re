@@ -1,7 +1,8 @@
 import React, { FC } from 'react'
 import { Box } from '@chakra-ui/core'
 
-import { useIncomes } from '../../hooks'
+import { useIncomes } from 'src/hooks'
+
 import { IncomeItem } from './IncomeItem'
 
 export const IncomesContainer: FC = () => {
@@ -10,7 +11,13 @@ export const IncomesContainer: FC = () => {
   return (
     <Box>
       {incomes.map(({ id, description, amount, date }) => (
-        <IncomeItem id={id} description={description} amount={amount} date={date} deleteIncome={deleteIncome} />
+        <IncomeItem
+          id={id}
+          description={description}
+          amount={amount}
+          date={date}
+          deleteIncome={deleteIncome}
+        />
       ))}
     </Box>
   )

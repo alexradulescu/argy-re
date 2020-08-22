@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 
-import { database } from '../firebase'
-import { Expense, Category } from '../interfaces'
+import { database } from 'src/firebase'
+import { Expense, Category } from 'src/interfaces'
+
 import { useCategories } from './useCategories'
 
 export const useExpenses = (
@@ -27,7 +28,9 @@ export const useExpenses = (
           )
           .map((expense) => ({
             ...expense,
-            categoryLabel: categories.find((item: Category) => item.id === expense.category)?.label || expense.category
+            categoryLabel:
+              categories.find((item: Category) => item.id === expense.category)?.label ||
+              expense.category
           }))
         setExpenses(fetchedExpenses)
       })

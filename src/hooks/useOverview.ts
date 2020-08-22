@@ -1,7 +1,8 @@
+import { Category } from 'src/interfaces'
+
 import { useCategories } from './useCategories'
 import { useExpenses } from './useExpenses'
 import { useIncomes } from './useIncomes'
-import { Category } from '../interfaces'
 
 export const useOverview = () => {
   const { categories } = useCategories()

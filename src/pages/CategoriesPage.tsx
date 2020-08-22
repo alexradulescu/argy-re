@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 
-import { CategoriesContainer, CategoryFormContainer } from '../components'
+import { CategoriesContainer, CategoryFormContainer } from 'src/components'
+
 import { PageTemplate } from './PageTemplate'
 
 /**

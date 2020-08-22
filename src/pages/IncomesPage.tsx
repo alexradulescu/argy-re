@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { ExpenseFormContainer, IncomesContainer } from '../components'
+import { ExpenseFormContainer, IncomesContainer } from 'src/components'
 
 import { PageTemplate } from './PageTemplate'
 /**

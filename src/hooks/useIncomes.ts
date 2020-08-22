@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
-import { database } from '../firebase'
-import { Income } from '../interfaces'
+import { database } from 'src/firebase'
+import { Income } from 'src/interfaces'
 
 export const useIncomes = (
   year = new Date().toISOString().substring(0, 4),

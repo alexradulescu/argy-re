@@ -1,7 +1,7 @@
 import React, { FC, useState, FormEvent, ChangeEvent, MouseEvent } from 'react'
 import { Input, Heading, Select, Button, Stack } from '@chakra-ui/core'
 
-import { useExpenses, useCategories, useIncomes } from '../../hooks'
+import { useExpenses, useCategories, useIncomes } from 'src/hooks'
 
 const DEFAULT_EXPENSE = {
   id: '',
@@ -81,7 +81,14 @@ export const ExpenseFormContainer: FC = () => {
             </option>
           ))}
         </Select>
-        <Input type="date" name="date" value={expense.date} onChange={onChangeExpense} placeholder="date" isRequired />
+        <Input
+          type="date"
+          name="date"
+          value={expense.date}
+          onChange={onChangeExpense}
+          placeholder="date"
+          isRequired
+        />
         <Button type="submit">Add Expense</Button>
         <Button onClick={addIncome}>Add Income</Button>
       </Stack>

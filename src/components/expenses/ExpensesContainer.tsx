@@ -1,8 +1,9 @@
 import React, { FC } from 'react'
 import { Box } from '@chakra-ui/core'
 
+import { useExpenses } from 'src/hooks'
+
 import { ExpenseItem } from './ExpenseItem'
-import { useExpenses } from '../../hooks'
 
 export const ExpensesContainer: FC = () => {
   const { expenses, deleteExpense } = useExpenses()

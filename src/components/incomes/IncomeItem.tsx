@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { Box, Text, Button } from '@chakra-ui/core'
 import { FaTimes } from 'react-icons/fa'
 
-import { Income } from '../../interfaces'
+import { Income } from 'src/interfaces'
 
 interface Props extends Income {
   deleteIncome: (id: string) => void
@@ -10,7 +10,14 @@ interface Props extends Income {
 
 export const IncomeItem: FC<Props> = ({ id, description, amount, date, deleteIncome }) => {
   return (
-    <Box key={id} borderWidth="1px" display="flex" justifyContent="space-between" padding="3" borderRadius="4px">
+    <Box
+      key={id}
+      borderWidth="1px"
+      display="flex"
+      justifyContent="space-between"
+      padding="3"
+      borderRadius="4px"
+    >
       <Box>
         <Text fontWeight="600">{description}</Text>
         <Text as="span" fontSize="14px" color="gray.600">

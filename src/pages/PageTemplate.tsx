@@ -1,7 +1,7 @@
 import React, { FC, ReactNode } from 'react'
 import { Box } from '@chakra-ui/core'
 
-import { PageHeader, PageFooter } from '../components'
+import { PageHeader, PageFooter } from 'src/components'
 
 interface Props {
   title: string

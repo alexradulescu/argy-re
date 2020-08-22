@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { Box, Text, Button, Tag } from '@chakra-ui/core'
 import { FaTimes } from 'react-icons/fa'
 
-import { Expense } from '../../interfaces'
+import { Expense } from 'src/interfaces'
 
 interface Props extends Expense {
   deleteExpense: (id: string) => void
