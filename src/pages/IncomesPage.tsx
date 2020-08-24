@@ -1,20 +1,14 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
-import { IncomesContainer, ExpenseFormContainer } from "../containers";
-import { PageHeader, PageFooter } from "../shared-components";
+import { ExpenseFormContainer, IncomesContainer } from '../components'
 
-export const IncomesPage: FC = () => {
-  return (
-    <main>
-      <PageHeader title="Incomes" />
-      <br />
-      <IncomesContainer />
-      <br />
-      <ExpenseFormContainer />
-      <br />
-      <PageFooter />
-    </main>
-  );
-};
+import { PageTemplate } from './PageTemplate'
 
-IncomesPage.displayName = "IncomesPage";
+export const IncomesPage: FC = () => (
+  <PageTemplate title="Incomes">
+    <IncomesContainer />
+    <ExpenseFormContainer />
+  </PageTemplate>
+)
+
+IncomesPage.displayName = 'IncomesPage'

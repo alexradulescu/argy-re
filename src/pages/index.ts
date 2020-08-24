@@ -1,3 +1,3 @@
-export * from "./CategoriesPage";
-export * from "./HomePage";
-export * from "./IncomesPage";
+export * from './HomePage'
+export * from './CategoriesPage'
+export * from './IncomesPage'

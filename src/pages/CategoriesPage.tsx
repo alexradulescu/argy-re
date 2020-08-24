@@ -1,20 +1,14 @@
 import React, { FC } from 'react'
 
-import { CategoriesContainer, CategoryFormContainer } from '../containers'
-import { PageHeader, PageFooter } from '../shared-components'
+import { CategoriesContainer, CategoryFormContainer } from '../components'
 
-export const CategoriesPage: FC = () => {
-  return (
-    <main>
-      <PageHeader title="Categories" />
-      <br />
-      <CategoriesContainer />
-      <br />
-      <CategoryFormContainer />
-      <br />
-      <PageFooter />
-    </main>
-  )
-}
+import { PageTemplate } from './PageTemplate'
+
+export const CategoriesPage: FC = () => (
+  <PageTemplate title="Categories">
+    <CategoriesContainer />
+    <CategoryFormContainer />
+  </PageTemplate>
+)
 
 CategoriesPage.displayName = 'CategoriesPage'
