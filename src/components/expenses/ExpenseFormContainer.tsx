@@ -1,5 +1,4 @@
 import React, { FC, useState, FormEvent, ChangeEvent, MouseEvent } from 'react'
-import { Input, Heading, Select, Button, Stack } from '@chakra-ui/core'
 
 import { useExpenses, useCategories, useIncomes } from 'src/hooks'
 import { getToday } from 'src/utils'
@@ -49,50 +48,60 @@ export const ExpenseFormContainer: FC = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <Stack spacing={'8px'}>
-        <Heading size="md">Add Expense</Heading>
-        <Input
-          id="outlined-basic"
+      <h3>Add Expense</h3>
+      <div className="form-group">
+        <input
+          className="form-control"
           placeholder="Description"
           name="description"
           type="text"
           value={expense.description}
           onChange={onChangeExpense}
-          isRequired
+          required
         />
-        <Input
-          id="outlined-basic"
+      </div>
+      <div className="form-group">
+        <input
+          className="form-control"
           placeholder="Amount"
           name="amount"
           type="number"
           value={expense.amount}
           onChange={onChangeExpense}
-          isRequired
+          required
         />
-        <Select
-          name="category"
+      </div>
+      <div className="form-group">
+        <select
+          className="custom-select"
           value={expense.category}
           onChange={onChangeExpense}
-          placeholder="Choose Category"
-          isRequired
+          required
         >
           {categories.map(({ label, value }: any) => (
             <option key={value} value={value}>
               {label}
             </option>
           ))}
-        </Select>
-        <Input
+        </select>
+      </div>
+      <div className="form-group">
+        <input
+          className="form-control"
           type="date"
           name="date"
           value={expense.date}
           onChange={onChangeExpense}
           placeholder="date"
-          isRequired
+          required
         />
-        <Button type="submit">Add Expense</Button>
-        <Button onClick={addIncome}>Add Income</Button>
-      </Stack>
+      </div>
+      <button className="btn btn-primary" type="submit">
+        Add Expense
+      </button>
+      <button className="btn btn-outline-secondary" onClick={addIncome}>
+        Add Income
+      </button>
     </form>
   )
 }
