@@ -11,7 +11,7 @@ export const IncomeItem: FC<Props> = ({ id, description, amount, date, deleteInc
   return (
     <li className="list-group-item">
       <p>{description}</p>
-      <p>{date}</p>deleteIncome
+      <p>{date}</p>
       <p>{amount}</p>
       <button className="btn btn-sm btn-outline-secondary" onClick={() => deleteIncome(id)}>
         <FaTimes />

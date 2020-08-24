@@ -27,6 +27,8 @@ export const useIncomes = (
   }, [month, year])
 
   const submitIncome = async (income: Income) => {
+    delete income.id
+
     database.collection('incomes').add(income)
   }
 
