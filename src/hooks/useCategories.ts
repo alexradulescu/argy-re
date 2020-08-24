@@ -7,16 +7,13 @@ export const useCategories = () => {
   const [categories, setCategories] = useState<any>([])
 
   useEffect(() => {
-    const categoriesConnection = database
-      .collection('categories')
-      // .where('date', '>', '2020-06-27')
-      .onSnapshot((snapshot) => {
-        const fetchedCategories = snapshot.docs.map((document) => ({
-          id: document.id,
-          ...document.data()
-        }))
-        setCategories(fetchedCategories)
-      })
+    const categoriesConnection = database.collection('categories').onSnapshot((snapshot) => {
+      const fetchedCategories = snapshot.docs.map((document) => ({
+        id: document.id,
+        ...document.data()
+      }))
+      setCategories(fetchedCategories)
+    })
     return () => {
       categoriesConnection()
     }
