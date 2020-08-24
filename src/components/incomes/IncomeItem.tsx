@@ -1,5 +1,4 @@
 import React, { FC } from 'react'
-import { Box, Text, Button } from '@chakra-ui/core'
 import { FaTimes } from 'react-icons/fa'
 
 import { Income } from 'src/interfaces'
@@ -10,28 +9,14 @@ interface Props extends Income {
 
 export const IncomeItem: FC<Props> = ({ id, description, amount, date, deleteIncome }) => {
   return (
-    <Box
-      borderWidth="1px"
-      display="flex"
-      justifyContent="space-between"
-      padding="3"
-      borderRadius="4px"
-    >
-      <Box>
-        <Text fontWeight="600">{description}</Text>
-        <Text as="span" fontSize="14px" color="gray.600">
-          {date}
-        </Text>
-      </Box>
-      <Box textAlign="right">
-        <Text fontWeight="600" fontFamily="mono">
-          {amount}
-        </Text>
-        <Button size="xs" onClick={() => deleteIncome(id)}>
-          <FaTimes />
-        </Button>
-      </Box>
-    </Box>
+    <li className="list-group-item">
+      <p>{description}</p>
+      <p>{date}</p>deleteIncome
+      <p>{amount}</p>
+      <button className="btn btn-sm btn-outline-secondary" onClick={() => deleteIncome(id)}>
+        <FaTimes />
+      </button>
+    </li>
   )
 }
 
