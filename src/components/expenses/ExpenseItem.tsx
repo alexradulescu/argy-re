@@ -9,7 +9,6 @@ interface Props extends Expense {
 export const ExpenseItem: FC<Props> = ({
   id,
   description,
-  category,
   categoryLabel,
   amount,
   date,
@@ -19,11 +18,10 @@ export const ExpenseItem: FC<Props> = ({
     <li className="list-group-item " onDoubleClick={() => deleteExpense(id)}>
       <div className="d-flex justify-content-between">
         <p className="mb-0">{description}</p>
-        <p className="mb-0">{amount}</p>
+        <p className="mb-0 text-danger">{amount}</p>
       </div>
-      <span className="badge badge-info">
-        {categoryLabel ?? category} - {date}
-      </span>
+      <span className="badge badge-info mr-2">{categoryLabel}</span>
+      <span className="badge badge-light">{date}</span>
     </li>
   )
 }

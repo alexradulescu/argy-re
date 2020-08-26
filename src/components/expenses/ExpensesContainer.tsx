@@ -1,5 +1,4 @@
 import React, { FC, useState, ChangeEvent } from 'react'
-import { Box, Input } from '@chakra-ui/core'
 
 import { useExpenses } from 'src/hooks'
 import { getThisYearMonth, getSeparateMonthYear } from 'src/utils'
@@ -12,34 +11,34 @@ export const ExpensesContainer: FC = () => {
 
   const onMonthChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSelectedMonth(e.target.value)
-    console.log(e.target.value)
   }
 
   return (
-    <>
-      <Input
+    <div className="container flex-fill">
+      <input
+        className="form-control mb-2"
         placeholder="Select month and year"
         name="month"
         type="month"
         max={getThisYearMonth()}
         value={selectedMonth}
         onChange={onMonthChange}
-        isRequired
       />
-      <Box>
-        {expenses.map(({ id, description, category, amount, date }) => (
+      <ul className="list-group">
+        {expenses.map(({ id, description, category, categoryLabel, amount, date }) => (
           <ExpenseItem
             key={id}
             id={id}
             description={description}
             category={category}
+            categoryLabel={categoryLabel}
             amount={amount}
             date={date}
             deleteExpense={deleteExpense}
           />
         ))}
-      </Box>
-    </>
+      </ul>
+    </div>
   )
 }
 

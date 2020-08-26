@@ -11,9 +11,9 @@ export const IncomeItem: FC<Props> = ({ id, description, amount, date, deleteInc
     <li className="list-group-item" onDoubleClick={() => deleteIncome(id)}>
       <div className="d-flex justify-content-between">
         <p className="mb-0">{description}</p>
-        <p className="mb-0">{amount}</p>
+        <p className="mb-0 text-success">{amount}</p>
       </div>
-      <span className="badge badge-success">{date}</span>
+      <span className="badge badge-light">{date}</span>
     </li>
   )
 }

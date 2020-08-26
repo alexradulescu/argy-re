@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react'
 
 import { database } from 'src/firebase'
 import { Expense, Category } from 'src/interfaces'
+import { getThisYear, getThisMonth } from 'src/utils'
 
 import { useCategories } from './useCategories'
-import { getThisYear, getThisMonth } from 'src/utils'
 
 export const useExpenses = ({ year, month } = { year: getThisYear(), month: getThisMonth() }) => {
   const [expenses, setExpenses] = useState<Expense[]>([])
@@ -27,7 +27,7 @@ export const useExpenses = ({ year, month } = { year: getThisYear(), month: getT
           .map((expense) => ({
             ...expense,
             categoryLabel:
-              categories.find((item: Category) => item.id === expense.category)?.label ||
+              categories.find((category: Category) => category.id === expense.category)?.label ||
               expense.category
           }))
         setExpenses(fetchedExpenses)
@@ -50,8 +50,6 @@ export const useExpenses = ({ year, month } = { year: getThisYear(), month: getT
       alert(error)
     }
   }
-
-  console.log(expenses)
 
   return { expenses, submitExpense, deleteExpense }
 }
