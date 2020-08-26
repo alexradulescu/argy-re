@@ -2,11 +2,9 @@ import { useEffect, useState } from 'react'
 
 import { database } from 'src/firebase'
 import { Income } from 'src/interfaces'
+import { getThisYear, getThisMonth } from 'src/utils'
 
-export const useIncomes = (
-  year = new Date().toISOString().substring(0, 4),
-  month = new Date().toISOString().substring(5, 7)
-) => {
+export const useIncomes = ({ year, month } = { year: getThisYear(), month: getThisMonth() }) => {
   const [incomes, setIncomes] = useState<Income[]>([])
 
   useEffect(() => {
@@ -33,10 +31,12 @@ export const useIncomes = (
   }
 
   const deleteIncome = async (incomeId: string) => {
-    try {
-      await database.collection('incomes').doc(incomeId).delete()
-    } catch (error) {
-      alert(error)
+    if (window.confirm(`Are you sure you want to delete the income: ${income.description}?`)) {
+      try {
+        await database.collection('incomes').doc(incomeId).delete()
+      } catch (error) {
+        alert(error)
+      }
     }
   }
 

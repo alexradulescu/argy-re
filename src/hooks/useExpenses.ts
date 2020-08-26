@@ -44,10 +44,12 @@ export const useExpenses = ({ year, month } = { year: getThisYear(), month: getT
   }
 
   const deleteExpense = async (expenseId: string) => {
-    try {
-      await database.collection('expenses').doc(expenseId).delete()
-    } catch (error) {
-      alert(error)
+    if (window.confirm(`Are you sure you want to delete the expense: ${expense.description}?`)) {
+      try {
+        await database.collection('expenses').doc(expenseId).delete()
+      } catch (error) {
+        alert(error)
+      }
     }
   }
 

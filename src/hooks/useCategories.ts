@@ -20,14 +20,18 @@ export const useCategories = () => {
   }, [])
 
   const submitCategory = async (category: Category): Promise<void> => {
+    delete category.id
+
     database.collection('categories').add(category)
   }
 
   const deleteCategory = async (categoryId: string): Promise<void> => {
-    try {
-      await database.collection('categories').doc(categoryId).delete()
-    } catch (error) {
-      alert(error)
+    if (window.confirm(`Are you sure you want to delete the category: ${category.label}?`)) {
+      try {
+        await database.collection('categories').doc(categoryId).delete()
+      } catch (error) {
+        alert(error)
+      }
     }
   }
 
