@@ -1,5 +1,4 @@
 import React, { FC } from 'react'
-import { FaTimes } from 'react-icons/fa'
 
 import { Expense } from 'src/interfaces'
 
@@ -17,16 +16,14 @@ export const ExpenseItem: FC<Props> = ({
   deleteExpense
 }) => {
   return (
-    <li className="list-group-item">
-      <p>{description}</p>
-      <p>
+    <li className="list-group-item " onDoubleClick={() => deleteExpense(id)}>
+      <div className="d-flex justify-content-between">
+        <p className="mb-0">{description}</p>
+        <p className="mb-0">{amount}</p>
+      </div>
+      <span className="badge badge-info">
         {categoryLabel ?? category} - {date}
-      </p>
-
-      <p>{amount}</p>
-      <button className="btn btn-sm btn-outline-secondary" onClick={() => deleteExpense(id)}>
-        <FaTimes />
-      </button>
+      </span>
     </li>
   )
 }
