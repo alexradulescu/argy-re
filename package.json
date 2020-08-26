@@ -17,6 +17,7 @@
     "react-icons": "^3.10.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "next",
+    "styled-components": "5.1.1",
     "typescript": "4.0.2"
   },
   "scripts": {
