@@ -1,5 +1,4 @@
 import React, { FC } from 'react'
-import { Box, Heading } from '@chakra-ui/core'
 
 import { useOverview, useCategories } from 'src/hooks'
 
@@ -10,14 +9,12 @@ export const CategoriesContainer: FC = () => {
   const { deleteCategory } = useCategories()
 
   return (
-    <>
-      <Box display="flex" justifyContent="space-between">
-        <Heading size="lg" color="gray.500">
-          Overview
-        </Heading>
-        <Heading size="lg">{totalBalance}</Heading>
-      </Box>
-      <Box>
+    <div className="container flex-fill overflow-auto">
+      <div className="d-flex justify-content-between">
+        <h3>Overview</h3>
+        <h3>{totalBalance}</h3>
+      </div>
+      <ul className="list-group">
         {overview.map(({ id, label, treshold, spent }: any) => (
           <CategoryItem
             key={id}
@@ -28,8 +25,8 @@ export const CategoriesContainer: FC = () => {
             deleteCategory={deleteCategory}
           />
         ))}
-      </Box>
-    </>
+      </ul>
+    </div>
   )
 }
 

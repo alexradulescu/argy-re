@@ -1,12 +1,13 @@
 import React, { FC } from 'react'
-import { Box } from '@chakra-ui/core'
 
 import { Navigation } from './Navigation'
 
 export const PageFooter: FC = () => (
-  <Box as="footer">
-    <Navigation />
-  </Box>
+  <footer className="fixed-bottom mb-2">
+    <div className="container border bg-white">
+      <Navigation />
+    </div>
+  </footer>
 )
 
 PageFooter.displayName = 'PageFooter'

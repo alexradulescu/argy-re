@@ -14,7 +14,7 @@ export const ExpensesContainer: FC = () => {
   }
 
   return (
-    <div className="container flex-fill">
+    <div className="container flex-fill overflow-auto">
       <input
         className="form-control mb-2"
         placeholder="Select month and year"

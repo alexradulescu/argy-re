@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { ExpenseFormContainer } from 'src/components'
+import { ExpenseFormContainer, CategoriesContainer } from 'src/components'
 
 import { PageTemplate } from './PageTemplate'
 
@@ -12,7 +12,8 @@ import { PageTemplate } from './PageTemplate'
  */
 export const HomePage: FC = () => (
   <PageTemplate title="Home">
-    {/* <OverviewContainer /> */}
+    <CategoriesContainer />
+
     <ExpenseFormContainer />
   </PageTemplate>
 )

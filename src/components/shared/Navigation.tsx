@@ -6,33 +6,27 @@ import { RiSettings4Line } from 'react-icons/ri'
 import { HiOutlineDocumentReport } from 'react-icons/hi'
 
 export const Navigation: FC = () => (
-  <ul className="nav d-flex justify-content-around mt-3">
-    <li className="nav-item">
-      <NavLink className="nav-link btn btn-light" activeClassName="active" to="/">
-        <AiOutlineHome />
-      </NavLink>
-    </li>
-    <li className="nav-item">
-      <NavLink className="nav-link btn btn-light" activeClassName="active" to="/expenses">
-        <GiPayMoney />
-      </NavLink>
-    </li>
-    <li className="nav-item">
-      <NavLink className="nav-link btn btn-light" activeClassName="active" to="/incomes">
-        <GiReceiveMoney />
-      </NavLink>
-    </li>
-    <li className="nav-item">
-      <NavLink className="nav-link btn btn-light" activeClassName="active" to="/report">
-        <HiOutlineDocumentReport />
-      </NavLink>
-    </li>
-    <li className="nav-item">
-      <NavLink className="nav-link btn btn-light" activeClassName="active" to="/categories">
-        <RiSettings4Line />
-      </NavLink>
-    </li>
-  </ul>
+  <div className="btn-group">
+    <NavLink exact className="btn btn-link" activeClassName="active" to="/">
+      <AiOutlineHome /> <small>Home</small>
+    </NavLink>
+
+    <NavLink className="btn btn-link" activeClassName="active" to="/expenses">
+      <GiPayMoney /> <small>Expenses</small>
+    </NavLink>
+
+    <NavLink className="btn btn-link" activeClassName="active" to="/incomes">
+      <GiReceiveMoney /> <small>Income</small>
+    </NavLink>
+
+    <NavLink className="btn btn-link" activeClassName="active" to="/report">
+      <HiOutlineDocumentReport /> <small>Reports</small>
+    </NavLink>
+
+    <NavLink className="btn btn-link" activeClassName="active" to="/categories">
+      <RiSettings4Line /> <small>Settings</small>
+    </NavLink>
+  </div>
 )
 
 Navigation.displayName = 'Navigation'
