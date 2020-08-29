@@ -1,5 +1,8 @@
 export interface Category {
-  id: string
   label: string
   treshold: number | string
+}
+
+export interface ApiCategory extends Category {
+  id: string
 }

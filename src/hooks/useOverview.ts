@@ -1,15 +1,16 @@
-import { Category } from 'src/interfaces'
+import { ApiCategory } from 'src/interfaces'
 
 import { useCategories } from './useCategories'
 import { useExpenses } from './useExpenses'
 import { useIncomes } from './useIncomes'
+import { useMemo } from 'react'
 
 export const useOverview = () => {
   const { categories } = useCategories()
   const { expenses } = useExpenses()
   const { incomes } = useIncomes()
 
-  const overview = categories.map((category: Category) => {
+  const overview = categories.map((category: ApiCategory) => {
     return {
       ...category,
       spent: expenses
@@ -18,9 +19,16 @@ export const useOverview = () => {
     }
   })
 
-  const totalBalance =
-    expenses.reduce((accumulator, item) => (accumulator -= Number(item.amount)), 0) +
-    incomes.reduce((accumulator, item) => (accumulator += Number(item.amount)), 0)
+  const totalExpenses = useMemo(
+    () => expenses.reduce((accumulator, item) => (accumulator -= Number(item.amount)), 0),
+    [expenses]
+  )
+  const totalIncomes = useMemo(
+    () => incomes.reduce((accumulator, item) => (accumulator += Number(item.amount)), 0),
+    [incomes]
+  )
 
-  return { overview, totalBalance }
+  const totalBalance = useMemo(() => totalExpenses + totalIncomes, [totalExpenses, totalIncomes])
+
+  return { overview, totalBalance, totalExpenses, totalIncomes }
 }

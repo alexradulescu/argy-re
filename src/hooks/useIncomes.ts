@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 
 import { database } from 'src/firebase'
-import { Income } from 'src/interfaces'
+import { Income, ApiIncome } from 'src/interfaces'
 import { getThisYear, getThisMonth } from 'src/utils'
 
 export const useIncomes = ({ year, month } = { year: getThisYear(), month: getThisMonth() }) => {
-  const [incomes, setIncomes] = useState<Income[]>([])
+  const [incomes, setIncomes] = useState<ApiIncome[]>([])
 
   useEffect(() => {
     const incomesConnection = database
@@ -17,7 +17,7 @@ export const useIncomes = ({ year, month } = { year: getThisYear(), month: getTh
           id: document.id,
           ...document.data()
         }))
-        setIncomes(fetchedIncomes as Income[])
+        setIncomes(fetchedIncomes as ApiIncome[])
       })
     return () => {
       incomesConnection()
@@ -25,13 +25,11 @@ export const useIncomes = ({ year, month } = { year: getThisYear(), month: getTh
   }, [month, year])
 
   const submitIncome = async (income: Income) => {
-    delete income.id
-
     database.collection('incomes').add(income)
   }
 
   const deleteIncome = async (incomeId: string) => {
-    if (window.confirm(`Are you sure you want to delete the income: ${income.description}?`)) {
+    if (window.confirm(`Are you sure you want to delete the income: ${incomeId}?`)) {
       try {
         await database.collection('incomes').doc(incomeId).delete()
       } catch (error) {
