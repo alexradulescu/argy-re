@@ -1,3 +1,5 @@
-export * from './HomePage'
 export * from './CategoriesPage'
+export * from './ExpensesPage'
+export * from './HomePage'
 export * from './IncomesPage'
+export * from './ReportPage'

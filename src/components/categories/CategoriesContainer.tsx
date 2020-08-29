@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
-import { Box, Heading } from '@chakra-ui/core'
 
-import { useOverview, useCategories } from '../../hooks'
+import { useOverview, useCategories } from 'src/hooks'
+
 import { CategoryItem } from './CategoryItem'
 
 export const CategoriesContainer: FC = () => {
@@ -9,19 +9,24 @@ export const CategoriesContainer: FC = () => {
   const { deleteCategory } = useCategories()
 
   return (
-    <>
-      <Box display="flex" justifyContent="space-between">
-        <Heading size="lg" color="gray.500">
-          Overview
-        </Heading>
-        <Heading size="lg">{totalBalance}</Heading>
-      </Box>
-      <Box>
-        {overview.map(({ id, label, treshold, spent }: any) => (
-          <CategoryItem id={id} label={label} spent={spent} treshold={treshold} deleteCategory={deleteCategory} />
+    <div className="container flex-fill overflow-auto">
+      <div className="d-flex justify-content-between mb-2 bg-facebook px-3 py-2 rounded-lg">
+        <p className="m-0 text-light">This month</p>
+        <h3 className="lead m-0 font-weight-normal text-white text-monospace">{totalBalance}</h3>
+      </div>
+      <ul className="list-group">
+        {overview.map(({ id, label, treshold, spent }) => (
+          <CategoryItem
+            key={id}
+            id={id}
+            label={label}
+            spent={spent}
+            treshold={treshold}
+            deleteCategory={deleteCategory}
+          />
         ))}
-      </Box>
-    </>
+      </ul>
+    </div>
   )
 }
 

@@ -1,12 +1,12 @@
 import React, { FC, useState, ChangeEvent, FormEvent } from 'react'
-import { Input, Heading, Select, Button, Stack } from '@chakra-ui/core'
 
-import { useCategories } from '../../hooks'
+import { useCategories } from 'src/hooks'
+import { Category } from 'src/interfaces'
 
-const DEFAULT_CATEGORY = { id: '', label: '', treshold: '' }
+const DEFAULT_CATEGORY = { label: '', treshold: '' }
 
 export const CategoryFormContainer: FC = () => {
-  const [category, setCategory] = useState(DEFAULT_CATEGORY)
+  const [category, setCategory] = useState<Category>(DEFAULT_CATEGORY)
 
   const { submitCategory } = useCategories()
 
@@ -23,39 +23,48 @@ export const CategoryFormContainer: FC = () => {
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    submitCategory({
-      ...category,
-      id: category.label.toLowerCase().replace(/\s/g, '_')
-    })
+    submitCategory(category)
     clearForm()
   }
 
   return (
-    <form onSubmit={onSubmit}>
-      <Stack spacing={'8px'}>
-        {' '}
-        <Heading size="md">Add Category</Heading>
-        <Input
-          id="outlined-basic"
-          placeholder="Title"
-          name="label"
-          type="text"
-          value={category.label}
-          onChange={onChangeCategory}
-          isRequired
-        />
-        <Input
-          id="outlined-basic"
-          placeholder="Max Amount"
-          name="treshold"
-          type="number"
-          value={category.treshold}
-          onChange={onChangeCategory}
-          isRequired
-        />
-        <Button type="submit">Add Category</Button>
-      </Stack>
-    </form>
+    <div className="container p-0">
+      <form className="card" onSubmit={onSubmit}>
+        <div className="card-body">
+          <legend className="small text-uppercase">Add Category</legend>
+
+          <div className="d-flex justify-content-between">
+            <div className="form-group flex-fill mr-3">
+              <input
+                className="form-control"
+                placeholder="Title"
+                name="label"
+                type="text"
+                value={category.label}
+                onChange={onChangeCategory}
+                required
+              />
+            </div>
+
+            <div className="form-group flex-fill">
+              <input
+                className="form-control"
+                placeholder="Max Amount"
+                name="treshold"
+                type="number"
+                value={category.treshold}
+                onChange={onChangeCategory}
+                required
+              />
+            </div>
+          </div>
+
+          <button className="btn btn-sm btn-block btn-primary" type="submit">
+            Add Category
+          </button>
+        </div>
+      </form>
+    </div>
   )
 }
 

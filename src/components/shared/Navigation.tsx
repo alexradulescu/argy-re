@@ -1,47 +1,41 @@
 import React, { FC } from 'react'
-import { Box } from '@chakra-ui/core'
-
-import { NavigationLink } from './NavigationLink'
+import { NavLink } from 'react-router-dom'
+import { AiOutlineHome } from 'react-icons/ai'
+import { GiPayMoney, GiReceiveMoney } from 'react-icons/gi'
+import { RiSettings4Line, RiProfileLine } from 'react-icons/ri'
 
 export const Navigation: FC = () => (
-  <Box
-    as="nav"
-    display="grid"
-    gridGap="4px"
-    gridAutoFlow="column"
-    gridAutoColumns="1fr"
-    // position="fixed"
-    // bottom="4px"
-    // left="4px"
-    // right="4px"
-    // border="1px solid gray.200"
-  >
-    <NavigationLink
-      exact
-      activeStyle={{
-        fontWeight: 'bold'
-      }}
-      to="/"
-    >
-      Home
-    </NavigationLink>
-    <NavigationLink
-      activeStyle={{
-        fontWeight: 'bold'
-      }}
-      to="/categories"
-    >
-      Categories
-    </NavigationLink>
-    <NavigationLink
-      activeStyle={{
-        fontWeight: 'bold'
-      }}
-      to="/incomes"
-    >
-      Incomes
-    </NavigationLink>
-  </Box>
+  <nav className="nav justify-content-around flex-nowrap">
+    <div className="nav-item">
+      <NavLink exact className="nav-link text-center" activeClassName="active" to="/">
+        <AiOutlineHome /> <small>Home</small>
+      </NavLink>
+    </div>
+
+    <div className="nav-item">
+      <NavLink className="nav-link text-center" activeClassName="active" to="/expenses">
+        <GiPayMoney /> <small>Expenses</small>
+      </NavLink>
+    </div>
+
+    <div className="nav-item">
+      <NavLink className="nav-link text-center" activeClassName="active" to="/incomes">
+        <GiReceiveMoney /> <small>Income</small>
+      </NavLink>
+    </div>
+
+    <div className="nav-item">
+      <NavLink className="nav-link text-center" activeClassName="active" to="/report">
+        <RiProfileLine /> <small>Reports</small>
+      </NavLink>
+    </div>
+
+    <div className="nav-item">
+      <NavLink className="nav-link text-center" activeClassName="active" to="/categories">
+        <RiSettings4Line /> <small>Settings</small>
+      </NavLink>
+    </div>
+  </nav>
 )
 
 Navigation.displayName = 'Navigation'

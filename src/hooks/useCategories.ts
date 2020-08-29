@@ -1,22 +1,19 @@
 import { useState, useEffect } from 'react'
 
-import { database } from '../firebase'
-import { Category } from '../interfaces'
+import { database } from 'src/firebase'
+import { Category, ApiCategory } from 'src/interfaces'
 
 export const useCategories = () => {
-  const [categories, setCategories] = useState<any>([])
+  const [categories, setCategories] = useState<ApiCategory[]>([])
 
   useEffect(() => {
-    const categoriesConnection = database
-      .collection('categories')
-      // .where('date', '>', '2020-06-27')
-      .onSnapshot((snapshot) => {
-        const fetchedCategories = snapshot.docs.map((document) => ({
-          id: document.id,
-          ...document.data()
-        }))
-        setCategories(fetchedCategories)
-      })
+    const categoriesConnection = database.collection('categories').onSnapshot((snapshot) => {
+      const fetchedCategories = snapshot.docs.map((document) => ({
+        id: document.id,
+        ...document.data()
+      }))
+      setCategories(fetchedCategories as ApiCategory[])
+    })
     return () => {
       categoriesConnection()
     }
@@ -27,10 +24,12 @@ export const useCategories = () => {
   }
 
   const deleteCategory = async (categoryId: string): Promise<void> => {
-    try {
-      await database.collection('categories').doc(categoryId).delete()
-    } catch (error) {
-      alert(error)
+    if (window.confirm(`Are you sure you want to delete the category: ${categoryId}?`)) {
+      try {
+        await database.collection('categories').doc(categoryId).delete()
+      } catch (error) {
+        alert(error)
+      }
     }
   }
 

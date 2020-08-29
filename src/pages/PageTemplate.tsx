@@ -1,7 +1,7 @@
 import React, { FC, ReactNode } from 'react'
-import { Box } from '@chakra-ui/core'
+import styled from 'styled-components'
 
-import { PageHeader, PageFooter } from '../components'
+import { PageHeader, PageFooter } from 'src/components'
 
 interface Props {
   title: string
@@ -10,12 +10,16 @@ interface Props {
 
 export const PageTemplate: FC<Props> = ({ title, children }) => {
   return (
-    <Box as="main" maxWidth="960px" width="90%" margin="auto">
+    <Main className="d-flex flex-column vh-100 bg-light">
       <PageHeader title={title} />
       {children}
       <PageFooter />
-    </Box>
+    </Main>
   )
 }
 
 PageTemplate.displayName = 'PageTemplate'
+
+const Main = styled.main`
+  padding-bottom: 86px;
+`

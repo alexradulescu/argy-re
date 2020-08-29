@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react'
 
-import { database } from '../firebase'
-import { Expense, Category } from '../interfaces'
+import { database } from 'src/firebase'
+import { Expense, ApiExpense, ApiCategory } from 'src/interfaces'
+import { getThisYear, getThisMonth } from 'src/utils'
+
 import { useCategories } from './useCategories'
 
-export const useExpenses = (
-  year = new Date().toISOString().substring(0, 4),
-  month = new Date().toISOString().substring(5, 7)
-) => {
-  const [expenses, setExpenses] = useState<Expense[]>([])
+export const useExpenses = ({ year, month } = { year: getThisYear(), month: getThisMonth() }) => {
+  const [expenses, setExpenses] = useState<ApiExpense[]>([])
   const { categories } = useCategories()
 
   useEffect(() => {
@@ -23,13 +22,15 @@ export const useExpenses = (
               ({
                 id: document.id,
                 ...document.data()
-              } as Expense)
+              } as ApiExpense)
           )
           .map((expense) => ({
             ...expense,
-            categoryLabel: categories.find((item: Category) => item.id === expense.category)?.label || expense.category
+            categoryLabel:
+              categories.find((category: ApiCategory) => category.id === expense.category)?.label ||
+              expense.category
           }))
-        setExpenses(fetchedExpenses)
+        setExpenses(fetchedExpenses as ApiExpense[])
       })
     return () => {
       expensesConnection()
@@ -41,10 +42,12 @@ export const useExpenses = (
   }
 
   const deleteExpense = async (expenseId: string) => {
-    try {
-      await database.collection('expenses').doc(expenseId).delete()
-    } catch (error) {
-      alert(error)
+    if (window.confirm(`Are you sure you want to delete the expense: ${expenseId}?`)) {
+      try {
+        await database.collection('expenses').doc(expenseId).delete()
+      } catch (error) {
+        alert(error)
+      }
     }
   }
 
