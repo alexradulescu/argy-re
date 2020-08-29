@@ -1,38 +1,42 @@
 import React, { FC } from 'react'
 import { NavLink } from 'react-router-dom'
-import { AiOutlineHome } from 'react-icons/ai'
-import { GiPayMoney, GiReceiveMoney } from 'react-icons/gi'
-import { RiSettings4Line, RiProfileLine } from 'react-icons/ri'
+import {
+  HiOutlineLibrary,
+  HiOutlineCurrencyDollar,
+  HiOutlineCreditCard,
+  HiOutlineDocumentReport,
+  HiOutlineCog
+} from 'react-icons/hi'
 
 export const Navigation: FC = () => (
   <nav className="nav justify-content-around flex-nowrap">
     <div className="nav-item">
       <NavLink exact className="nav-link text-center" activeClassName="active" to="/">
-        <AiOutlineHome /> <small>Home</small>
+        <HiOutlineLibrary /> <small>Home</small>
       </NavLink>
     </div>
 
     <div className="nav-item">
       <NavLink className="nav-link text-center" activeClassName="active" to="/expenses">
-        <GiPayMoney /> <small>Expenses</small>
+        <HiOutlineCurrencyDollar /> <small>Expenses</small>
       </NavLink>
     </div>
 
     <div className="nav-item">
       <NavLink className="nav-link text-center" activeClassName="active" to="/incomes">
-        <GiReceiveMoney /> <small>Income</small>
+        <HiOutlineCreditCard /> <small>Income</small>
       </NavLink>
     </div>
 
     <div className="nav-item">
       <NavLink className="nav-link text-center" activeClassName="active" to="/report">
-        <RiProfileLine /> <small>Reports</small>
+        <HiOutlineDocumentReport /> <small>Reports</small>
       </NavLink>
     </div>
 
     <div className="nav-item">
       <NavLink className="nav-link text-center" activeClassName="active" to="/categories">
-        <RiSettings4Line /> <small>Settings</small>
+        <HiOutlineCog /> <small>Settings</small>
       </NavLink>
     </div>
   </nav>
