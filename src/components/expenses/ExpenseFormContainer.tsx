@@ -51,9 +51,9 @@ export const ExpenseFormContainer: FC = () => {
       <form className="card" onSubmit={onSubmit}>
         <div className="card-body">
           <legend className="small text-uppercase">Add Expense</legend>
-          <div className="form-group">
+          <div className="form-group mb-2">
             <input
-              className="form-control"
+              className="form-control form-control-sm"
               placeholder="Description"
               name="description"
               type="text"
@@ -62,9 +62,9 @@ export const ExpenseFormContainer: FC = () => {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="form-group mb-2">
             <input
-              className="form-control"
+              className="form-control form-control-sm"
               placeholder="Amount"
               name="amount"
               type="number"
@@ -74,9 +74,9 @@ export const ExpenseFormContainer: FC = () => {
             />
           </div>
           <div className="row">
-            <div className="col-6 form-group">
+            <div className="col-6 form-group mb-2">
               <select
-                className="custom-select"
+                className="custom-select custom-select-sm"
                 name="category"
                 value={expense.category}
                 onChange={onChangeExpense}
@@ -90,9 +90,9 @@ export const ExpenseFormContainer: FC = () => {
                 ))}
               </select>
             </div>
-            <div className="col-6 form-group ">
+            <div className="col-6 form-group mb-2">
               <input
-                className="form-control"
+                className="form-control form-control-sm"
                 type="date"
                 name="date"
                 value={expense.date}
@@ -104,12 +104,12 @@ export const ExpenseFormContainer: FC = () => {
           </div>
           <div className="row">
             <div className="col-6">
-              <button className="btn btn-danger btn-block" type="submit">
+              <button className="btn btn-sm btn-danger btn-block" type="submit">
                 Add Expense
               </button>
             </div>
             <div className="col-6">
-              <button className="btn btn-outline-success btn-block " onClick={addIncome}>
+              <button className="btn btn-sm btn-outline-success btn-block " onClick={addIncome}>
                 Add Income
               </button>
             </div>

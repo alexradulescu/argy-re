@@ -34,9 +34,9 @@ export const CategoryFormContainer: FC = () => {
           <legend className="small text-uppercase">Add Category</legend>
 
           <div className="d-flex justify-content-between">
-            <div className="form-group flex-fill mr-3">
+            <div className="form-group flex-fill mr-3 mb-2">
               <input
-                className="form-control"
+                className="form-control form-control-sm"
                 placeholder="Title"
                 name="label"
                 type="text"
@@ -46,9 +46,9 @@ export const CategoryFormContainer: FC = () => {
               />
             </div>
 
-            <div className="form-group flex-fill">
+            <div className="form-group flex-fill mb-2">
               <input
-                className="form-control"
+                className="form-control form-control-sm"
                 placeholder="Max Amount"
                 name="treshold"
                 type="number"

@@ -1,5 +1,4 @@
 import React, { FC, ReactNode } from 'react'
-import styled from 'styled-components'
 
 import { PageHeader, PageFooter } from 'src/components'
 
@@ -10,16 +9,12 @@ interface Props {
 
 export const PageTemplate: FC<Props> = ({ title, children }) => {
   return (
-    <Main className="d-flex flex-column vh-100 bg-light">
+    <main className="d-flex flex-column vh-100 bg-light pb-5">
       <PageHeader title={title} />
       {children}
       <PageFooter />
-    </Main>
+    </main>
   )
 }
 
 PageTemplate.displayName = 'PageTemplate'
-
-const Main = styled.main`
-  padding-bottom: 86px;
-`
