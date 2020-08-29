@@ -1,11 +1,12 @@
 import React, { FC, useState, ChangeEvent, FormEvent } from 'react'
 
 import { useCategories } from 'src/hooks'
+import { Category } from 'src/interfaces'
 
-const DEFAULT_CATEGORY = { id: '', label: '', treshold: '' }
+const DEFAULT_CATEGORY = { label: '', treshold: '' }
 
 export const CategoryFormContainer: FC = () => {
-  const [category, setCategory] = useState(DEFAULT_CATEGORY)
+  const [category, setCategory] = useState<Category>(DEFAULT_CATEGORY)
 
   const { submitCategory } = useCategories()
 

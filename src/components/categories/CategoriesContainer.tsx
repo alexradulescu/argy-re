@@ -10,12 +10,12 @@ export const CategoriesContainer: FC = () => {
 
   return (
     <div className="container flex-fill overflow-auto">
-      <div className="d-flex justify-content-between">
-        <h3>Overview</h3>
-        <h3>{totalBalance}</h3>
+      <div className="d-flex justify-content-between mb-2 bg-facebook px-3 py-2 rounded-lg">
+        <p className="m-0 text-light">This month</p>
+        <h3 className="lead m-0 font-weight-normal text-white text-monospace">{totalBalance}</h3>
       </div>
       <ul className="list-group">
-        {overview.map(({ id, label, treshold, spent }: any) => (
+        {overview.map(({ id, label, treshold, spent }) => (
           <CategoryItem
             key={id}
             id={id}

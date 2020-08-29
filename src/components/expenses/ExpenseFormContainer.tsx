@@ -2,9 +2,9 @@ import React, { FC, useState, FormEvent, ChangeEvent, MouseEvent } from 'react'
 
 import { useExpenses, useCategories, useIncomes } from 'src/hooks'
 import { getToday } from 'src/utils'
+import { Expense } from 'src/interfaces'
 
-const DEFAULT_EXPENSE = {
-  id: '',
+const DEFAULT_EXPENSE: Expense = {
   description: '',
   amount: '',
   category: '',
@@ -73,8 +73,8 @@ export const ExpenseFormContainer: FC = () => {
               required
             />
           </div>
-          <div className="d-flex justify-content-between">
-            <div className="form-group flex-fill mr-3">
+          <div className="row">
+            <div className="col-6 form-group">
               <select
                 className="custom-select"
                 name="category"
@@ -90,7 +90,7 @@ export const ExpenseFormContainer: FC = () => {
                 ))}
               </select>
             </div>
-            <div className="form-group flex-fill">
+            <div className="col-6 form-group ">
               <input
                 className="form-control"
                 type="date"
@@ -102,13 +102,17 @@ export const ExpenseFormContainer: FC = () => {
               />
             </div>
           </div>
-          <div className="d-flex justify-content-between">
-            <button className="btn btn-danger d-block flex-fill mr-3" type="submit">
-              Add Expense
-            </button>
-            <button className="btn btn-outline-success d-block flex-fill" onClick={addIncome}>
-              Add Income
-            </button>
+          <div className="row">
+            <div className="col-6">
+              <button className="btn btn-danger btn-block" type="submit">
+                Add Expense
+              </button>
+            </div>
+            <div className="col-6">
+              <button className="btn btn-outline-success btn-block " onClick={addIncome}>
+                Add Income
+              </button>
+            </div>
           </div>
         </div>
       </form>

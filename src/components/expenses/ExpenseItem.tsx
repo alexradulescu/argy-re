@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 
-import { Expense } from 'src/interfaces'
+import { ApiExpense } from 'src/interfaces'
 
-interface Props extends Expense {
+interface Props extends ApiExpense {
   deleteExpense: (id: string) => void
 }
 
@@ -18,7 +18,7 @@ export const ExpenseItem: FC<Props> = ({
     <li className="list-group-item " onDoubleClick={() => deleteExpense(id)}>
       <div className="d-flex justify-content-between">
         <p className="mb-0">{description}</p>
-        <p className="mb-0 text-danger">{amount}</p>
+        <p className="mb-0 text-danger text-monospace small">{amount}</p>
       </div>
       <span className="badge badge-info mr-2">{categoryLabel}</span>
       <span className="badge badge-light">{date}</span>
