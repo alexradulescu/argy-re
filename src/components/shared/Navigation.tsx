@@ -7,39 +7,44 @@ import {
   HiOutlineDocumentReport,
   HiOutlineCog
 } from 'react-icons/hi'
+import styled from 'styled-components'
 
 export const Navigation: FC = () => (
   <nav className="nav justify-content-around flex-nowrap">
     <div className="nav-item">
-      <NavLink exact className="nav-link text-center" activeClassName="active" to="/">
+      <Link exact className="nav-link text-center" activeClassName="active" to="/">
         <HiOutlineLibrary /> <small>Home</small>
-      </NavLink>
+      </Link>
     </div>
 
     <div className="nav-item">
-      <NavLink className="nav-link text-center" activeClassName="active" to="/expenses">
+      <Link className="nav-link text-center" activeClassName="active" to="/expenses">
         <HiOutlineCurrencyDollar /> <small>Expenses</small>
-      </NavLink>
+      </Link>
     </div>
 
     <div className="nav-item">
-      <NavLink className="nav-link text-center" activeClassName="active" to="/incomes">
+      <Link className="nav-link text-center" activeClassName="active" to="/incomes">
         <HiOutlineCreditCard /> <small>Income</small>
-      </NavLink>
+      </Link>
     </div>
 
     <div className="nav-item">
-      <NavLink className="nav-link text-center" activeClassName="active" to="/report">
+      <Link className="nav-link text-center" activeClassName="active" to="/report">
         <HiOutlineDocumentReport /> <small>Reports</small>
-      </NavLink>
+      </Link>
     </div>
 
     <div className="nav-item">
-      <NavLink className="nav-link text-center" activeClassName="active" to="/categories">
+      <Link className="nav-link text-center" activeClassName="active" to="/categories">
         <HiOutlineCog /> <small>Settings</small>
-      </NavLink>
+      </Link>
     </div>
   </nav>
 )
 
 Navigation.displayName = 'Navigation'
+
+const Link = styled(NavLink)`
+  padding: 0.5rem;
+`
