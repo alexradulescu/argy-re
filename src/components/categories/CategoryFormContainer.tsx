@@ -28,7 +28,7 @@ export const CategoryFormContainer: FC = () => {
   }
 
   return (
-    <div className="container p-0">
+    <div className="container">
       <form className="card" onSubmit={onSubmit}>
         <div className="card-body">
           <legend className="small text-uppercase">Add Category</legend>
