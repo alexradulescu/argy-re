@@ -6,27 +6,37 @@ import { RiSettings4Line } from 'react-icons/ri'
 import { HiOutlineDocumentReport } from 'react-icons/hi'
 
 export const Navigation: FC = () => (
-  <div className="btn-group">
-    <NavLink exact className="btn btn-link" activeClassName="active" to="/">
-      <AiOutlineHome /> <small>Home</small>
-    </NavLink>
+  <nav className="nav justify-content-around flex-nowrap">
+    <div className="nav-item">
+      <NavLink exact className="nav-link text-center" activeClassName="active" to="/">
+        <AiOutlineHome /> <small>Home</small>
+      </NavLink>
+    </div>
 
-    <NavLink className="btn btn-link" activeClassName="active" to="/expenses">
-      <GiPayMoney /> <small>Expenses</small>
-    </NavLink>
+    <div className="nav-item">
+      <NavLink className="nav-link text-center" activeClassName="active" to="/expenses">
+        <GiPayMoney /> <small>Expenses</small>
+      </NavLink>
+    </div>
 
-    <NavLink className="btn btn-link" activeClassName="active" to="/incomes">
-      <GiReceiveMoney /> <small>Income</small>
-    </NavLink>
+    <div className="nav-item">
+      <NavLink className="nav-link text-center" activeClassName="active" to="/incomes">
+        <GiReceiveMoney /> <small>Income</small>
+      </NavLink>
+    </div>
 
-    <NavLink className="btn btn-link" activeClassName="active" to="/report">
-      <HiOutlineDocumentReport /> <small>Reports</small>
-    </NavLink>
+    <div className="nav-item">
+      <NavLink className="nav-link text-center" activeClassName="active" to="/report">
+        <HiOutlineDocumentReport /> <small>Reports</small>
+      </NavLink>
+    </div>
 
-    <NavLink className="btn btn-link" activeClassName="active" to="/categories">
-      <RiSettings4Line /> <small>Settings</small>
-    </NavLink>
-  </div>
+    <div className="nav-item">
+      <NavLink className="nav-link text-center" activeClassName="active" to="/categories">
+        <RiSettings4Line /> <small>Settings</small>
+      </NavLink>
+    </div>
+  </nav>
 )
 
 Navigation.displayName = 'Navigation'
