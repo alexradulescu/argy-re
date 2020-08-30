@@ -53,7 +53,7 @@ export const ExpenseFormContainer: FC = () => {
           <legend className="small text-uppercase">Add Expense</legend>
           <div className="form-group mb-2">
             <input
-              className="form-control form-control-sm"
+              className="form-control "
               placeholder="Description"
               name="description"
               type="text"
@@ -64,7 +64,7 @@ export const ExpenseFormContainer: FC = () => {
           </div>
           <div className="form-group mb-2">
             <input
-              className="form-control form-control-sm"
+              className="form-control "
               placeholder="Amount"
               name="amount"
               type="number"
@@ -76,7 +76,7 @@ export const ExpenseFormContainer: FC = () => {
           <div className="row">
             <div className="col-6 form-group mb-2">
               <select
-                className="custom-select custom-select-sm"
+                className="custom-select"
                 name="category"
                 value={expense.category}
                 onChange={onChangeExpense}
@@ -92,7 +92,7 @@ export const ExpenseFormContainer: FC = () => {
             </div>
             <div className="col-6 form-group mb-2">
               <input
-                className="form-control form-control-sm"
+                className="form-control "
                 type="date"
                 name="date"
                 value={expense.date}
